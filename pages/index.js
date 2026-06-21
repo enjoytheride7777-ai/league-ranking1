@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <div
       style={{
-        maxWidth: 800,
+        maxWidth: 900,
         margin: "40px auto",
         padding: 20,
         fontFamily: "sans-serif",
@@ -87,6 +87,33 @@ export default function Home() {
             </div>
           ))
         )}
+      </div>
+
+      <div
+        style={{
+          marginTop: "50px",
+          paddingTop: "20px",
+          borderTop: "1px solid #ddd",
+          color: "#555",
+          fontSize: "14px",
+          lineHeight: "1.8",
+          whiteSpace: "pre-line",
+        }}
+      >
+        <p>
+          ■ 출처 : Opta Analyst Global League Rankings (2026년 6월 기준,
+          1~300위)
+        </p>
+
+        <p>
+          ■ 국가명 : 네이버 국가정보 기준 공식 명칭을 사용하였습니다.
+          <br />
+          아래 예시를 참고하여 왼쪽 국가명을 기입해주시면 되겠습니다.
+          <br />
+          예) 사이프러스 O 키프로스 X / 튀르키예 O 터키 X
+          <br />
+          남아프리카공화국 O 남아공 X / 아랍에미리트 O UAE X
+        </p>
       </div>
     </div>
   );
