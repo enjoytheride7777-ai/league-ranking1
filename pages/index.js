@@ -6,10 +6,12 @@ export default function Home() {
   const [keyword, setKeyword] = useState("");
   const [result, setResult] = useState([]);
 
-  const searchLeague = () => {
-    const index = leagues.findIndex(item =>
-      item.league.toLowerCase().includes(keyword.toLowerCase())
-    );
+ const searchText = keyword.replace("위", "").trim();
+
+const index = leagues.findIndex(item =>
+  item.league.toLowerCase().includes(keyword.toLowerCase()) ||
+  item.rank.toString() === searchText
+);
 
     if (index === -1) {
       setResult([]);
