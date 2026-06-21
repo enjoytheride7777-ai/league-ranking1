@@ -5,9 +5,9 @@ export default function Home() {
   const [keyword, setKeyword] = useState("");
   const [result, setResult] = useState([]);
 
-  const searchLeague = () => {
-    const searchText = keyword.replace("위", "").trim();
+  const searchText = keyword.replace("위", "").trim();
 
+  const searchLeague = () => {
     const index = leagues.findIndex(
       (item) =>
         item.league.toLowerCase().includes(keyword.toLowerCase()) ||
@@ -65,24 +65,32 @@ export default function Home() {
       </button>
 
       <div style={{ marginTop: "20px" }}>
-        {result.map((item) => (
-          <div
-            key={item.rank}
-            style={{
-              padding: "14px",
-              marginBottom: "8px",
-              border: "1px solid #ddd",
-              borderRadius: "8px",
-              background:
-                item.rank.toString() === searchText ||
-                item.league.toLowerCase().includes(keyword.toLowerCase())
-                  ? "#c8f0c8"
-                  : "white",
-            }}
-          >
-            <strong>{item.rank}위</strong> {item.league}
-          </div>
-        ))}
+        {result.length === 0 ? (
+          keyword !== "" && (
+            <p>검색 결과가 없습니다.</p>
+          )
+        ) : (
+          result.map((item) => (
+            <div
+              key={item.rank}
+              style={{
+                padding: "14px",
+                marginBottom: "8px",
+                border: "1px solid #ddd",
+                borderRadius: "8px",
+                background:
+                  item.rank.toString() === searchText ||
+                  item.league
+                    .toLowerCase()
+                    .includes(keyword.toLowerCase())
+                    ? "#c8f0c8"
+                    : "white",
+              }}
+            >
+              <strong>{item.rank}위</strong> {item.league}
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
